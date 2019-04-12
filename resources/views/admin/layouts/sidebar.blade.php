@@ -27,6 +27,13 @@
 					<li id="menu-academico-avaliacoes" ><a href="faq.html">Faq</a></li>
 				</ul>
 			</li>
+			<li id="menu-academico" ><a href="admin/hinhanh/danhsach"><i class="fa fa-list-ul" aria-hidden="true"></i><span>Hình Bất Động Sản</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
+				<ul id="menu-academico-sub" >
+					<li id="menu-academico-avaliacoes" ><a href="admin/hinhanh/them">Thêm</a></li>
+					<li id="menu-academico-avaliacoes" ><a href="typography.html">Typography</a></li>
+					<li id="menu-academico-avaliacoes" ><a href="faq.html">Faq</a></li>
+				</ul>
+			</li>
 			<li id="menu-academico" ><a href="errorpage.html"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span>Error Page</span><div class="clearfix"></div></a></li>
 			<li id="menu-academico" ><a href="#"><i class="fa fa-cogs" aria-hidden="true"></i><span> UI Components</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
 				<ul id="menu-academico-sub" >

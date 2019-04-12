@@ -50,7 +50,7 @@ class LoaiBDSController extends Controller
 		$loaibds=LoaiBatDongSan::find($id);
 		return view('admin/loaibatdongsan/sua',['loaibds'=>$loaibds]);
 	}
-	public function postSua(Request $req){
+	public function postSua(Request $req, $id){
 		$this->validate($req,
 			[
 
@@ -60,9 +60,9 @@ class LoaiBDSController extends Controller
 				'tenloai.required' => 'Bạn chưa nhập tên loại',
 				'tenloai.unique' => 'Tên loại đã tồn tại',
 			]);
-		$loaibds = new LoaiBatDongSan;
+		$loaibds =LoaiBatDongSan::find($id);
 		$loaibds->tenloai=$req->tenloai;
 		$loaibds->save();
-		return redirect()->back()->with('thongbao','Thêm thành công');
+		return redirect()->back()->with('thongbao','Sửa thành công');
 	}
 }

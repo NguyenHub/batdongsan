@@ -16,15 +16,30 @@
 	<!-- Graph CSS -->
 	<link href="admin_asset/css/font-awesome.css" rel="stylesheet">
 	<!-- jQuery -->
-	<script src="admin_asset/js/jquery-2.1.4.min.js"></script>
 	<!-- //jQuery -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
 	<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 	<!-- lined-icons -->
 	<link rel="stylesheet" href="admin_asset/css/icon-font.min.css" type='text/css' />
 	<!-- //lined-icons -->
-</head>
+	<!-- //boostrap fileinput -->
+	<link rel="stylesheet" href="admin_asset/bootstrap-fileinput/css/fileinput.css" media="all" type="text/css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+	<link href="admin_asset/bootstrap-fileinput/themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css"/>
+
 <body>
+	<script src="admin_asset/js/jquery-2.1.4.min.js"></script>
+	<script src="admin_asset/js/morris.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+	<script src="admin_asset/bootstrap-fileinput/js/plugins/piexif.js" type="text/javascript"></script>
+	<script src="admin_asset/bootstrap-fileinput/js/plugins/sortable.js" type="text/javascript"></script>
+	<script src="admin_asset/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>
+	<script src="admin_asset/bootstrap-fileinput/js/locales/fr.js" type="text/javascript"></script>
+	<script src="admin_asset/bootstrap-fileinput/js/locales/es.js" type="text/javascript"></script>
+	<script src="admin_asset/bootstrap-fileinput/themes/fas/theme.js" type="text/javascript"></script>
+	<script src="admin_asset/bootstrap-fileinput/themes/explorer-fas/theme.js" type="text/javascript"></script>
+	<script src="admin_asset/bootstrap-fileinput/themes/gly/theme.js" type="text/javascript"></script>
+	<script src="admin_asset/bootstrap-fileinput/themes/gly/theme.min.js" type="text/javascript"></script>
 	<div class="page-container">
 		<!--/content-inner-->
 		<div class="left-content">
@@ -57,7 +72,7 @@
 											</div>
 										</li>
 										<li><a href="#">
-											<div class="user_img"><img src="images/in11.jpg" alt=""></div>
+											<div class="user_img"><img src="" alt=""></div>
 											<div class="notification_desc">
 												<p>Lorem ipsum dolor</p>
 												<p><span>1 hour ago</span></p>
@@ -65,7 +80,7 @@
 											<div class="clearfix"></div>
 										</a></li>
 										<li class="odd"><a href="#">
-											<div class="user_img"><img src="images/in10.jpg" alt=""></div>
+											<div class="user_img"><img src="" alt=""></div>
 											<div class="notification_desc">
 												<p>Lorem ipsum dolor </p>
 												<p><span>1 hour ago</span></p>
@@ -73,7 +88,7 @@
 											<div class="clearfix"></div>
 										</a></li>
 										<li><a href="#">
-											<div class="user_img"><img src="images/in9.jpg" alt=""></div>
+											<div class="user_img"><img src="" alt=""></div>
 											<div class="notification_desc">
 												<p>Lorem ipsum dolor</p>
 												<p><span>1 hour ago</span></p>
@@ -96,7 +111,7 @@
 											</div>
 										</li>
 										<li><a href="#">
-											<div class="user_img"><img src="images/in8.jpg" alt=""></div>
+											<div class="user_img"><img src="" alt=""></div>
 											<div class="notification_desc">
 												<p>Lorem ipsum dolor</p>
 												<p><span>1 hour ago</span></p>
@@ -104,7 +119,7 @@
 											<div class="clearfix"></div>
 										</a></li>
 										<li class="odd"><a href="#">
-											<div class="user_img"><img src="images/in6.jpg" alt=""></div>
+											<div class="user_img"><img src="" alt=""></div>
 											<div class="notification_desc">
 												<p>Lorem ipsum dolor</p>
 												<p><span>1 hour ago</span></p>
@@ -112,7 +127,7 @@
 											<div class="clearfix"></div>
 										</a></li>
 										<li><a href="#">
-											<div class="user_img"><img src="images/in7.jpg" alt=""></div>
+											<div class="user_img"><img src="" alt=""></div>
 											<div class="notification_desc">
 												<p>Lorem ipsum dolor</p>
 												<p><span>1 hour ago</span></p>
@@ -242,6 +257,36 @@
 
 					});
 				</script>
+				{{-- <script>
+					$(document).on('ready', function() {
+						$("#file-1").fileinput({
+							theme:'fa',
+							browseClass: "btn btn-success",
+							browseLabel: "Pick Image",
+							browseIcon: "<i class="glyphicon glyphicon-picture"></i> ",
+							removeClass: "btn btn-danger",
+							removeLabel: "Delete",
+							removeIcon: "<i class="glyphicon glyphicon-trash"></i> ",
+							uploadClass: "btn btn-info",
+							uploadLabel: "Upload",
+							uploadIcon: "<i class="glyphicon glyphicon-upload"></i> "
+							uploadExtraData:function(){
+								return {
+									_token:$("input[name='_token']").val()
+								};
+							},
+							allowdFileExtensions:['jpg','png','gif'],
+							overwriteInitial:false,
+							maxFilePreviewSize: 10240,
+							maxFileSize:2000,
+							maxFileNum:8,
+							slugCallback:function(filename){
+								return filename.replace('(','_').replace(']','_');
+							}
+
+						});
+					});
+				</script> --}}
 				<!-- /script-for sticky-nav -->
 				<!--inner block start here-->
 				<div class="inner-block">
@@ -257,7 +302,7 @@
 		</div>
 		<!--//content-inner-->
 		<!--/sidebar-menu-->
-		 @include('admin.layouts.sidebar')
+		@include('admin.layouts.sidebar')
 		<div class="clearfix"></div>
 	</div>
 	<script>
@@ -282,32 +327,32 @@
 	</script>
 	<!--js -->
 	<script type="text/javascript">
-        $(document).ready(function() {
-            $('.delete').click(function() {
-                var r = confirm("Bạn muốn xóa!");
-                if (r == true) {
-                    return true;
-                } else {
-                  return false;
-              }
-          });
-        });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.update').click(function() {
-                var r = confirm("Bạn muốn cập nhật!");
-                if (r == true) {
-                    return true;
-                } else {
-                  return false;
-              }
-          });
-        });
-    </script>
-    <script type="text/javascript">
-    	$("div.alert").delay(2000).slideUp();
-    </script>
+		$(document).ready(function() {
+			$('.delete').click(function() {
+				var r = confirm("Bạn muốn xóa!");
+				if (r == true) {
+					return true;
+				} else {
+					return false;
+				}
+			});
+		});
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.update').click(function() {
+				var r = confirm("Bạn muốn cập nhật!");
+				if (r == true) {
+					return true;
+				} else {
+					return false;
+				}
+			});
+		});
+	</script>
+	<script type="text/javascript">
+		$("div.alert").delay(2000).slideUp();
+	</script>
 	<script src="admin_asset/js/jquery.nicescroll.js"></script>
 	<script src="admin_asset/js/scripts.js"></script>
 	<!-- Bootstrap Core JavaScript -->
@@ -316,6 +361,8 @@
 	<!-- morris JavaScript -->
 	<script src="admin_asset/js/raphael-min.js"></script>
 	<script src="admin_asset/js/morris.js"></script>
+	<script src="admin_asset/bootstrap-fileinput/js/fileinput.js"></script>
+	<script src="admin_asset/bootstrap-fileinput/themes/fa/theme.js"></script>
 	<script>
 		$(document).ready(function() {
 		//BOX BUTTON SHOW AND CLOSE

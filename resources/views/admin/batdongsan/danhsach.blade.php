@@ -71,8 +71,8 @@
                                           <td>{{$bds->loaiid}}</td>
                                           <td>{{$bds->khid}}</td>
                                           <td>
-                                              <a class="glyphicon glyphicon-edit" href="admin/batdongsan/sua/{{$bds->id}}"></a>
-                                              <a class="glyphicon glyphicon-remove-sign" href="admin/batdongsan/xoa/{{$bds->id}}"></a>
+                                              <a class="update glyphicon glyphicon-edit" href="admin/batdongsan/sua/{{$bds->id}}"></a>
+                                              <a class="delete glyphicon glyphicon-remove-sign" href="admin/batdongsan/xoa/{{$bds->id}}"></a>
                                           </td>
                                       </tr>
                                    @endforeach

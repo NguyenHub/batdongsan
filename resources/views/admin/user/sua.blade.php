@@ -46,14 +46,14 @@
                                     <input type="checkbox" id="changepassword" name="changepassword" >
                                     <label for="inputten" class="col-sm-2 col-form-label">Đổi mật khẩu</label>
                                     <div class="col-sm-8">
-                                        <input type="password" class="form-control password" placeholder="Mật khẩu" name="password" value="" disabled="">
+                                        <input type="password" class=" password form-control " placeholder="Mật khẩu" name="password" value="" disabled="">
                                     </div>
                                 </div>
 
                                  <div class="form-group row">
                                     <label for="inputten" class="col-sm-2 col-form-label">Nhập lại mật khẩu</label>
                                     <div class="col-sm-8">
-                                        <input type="password" class="form-control password"  placeholder="Nhập lại mật khẩu" name="nhaplaipassword" value="" disabled="">
+                                        <input type="password" class=" password form-control "  placeholder="Nhập lại mật khẩu" name="nhaplaipassword" value="" disabled="">
                                     </div>
                                 </div>
 

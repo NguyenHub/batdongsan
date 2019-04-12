@@ -82,20 +82,31 @@ Route::group(['prefix' => 'admin'], function () {
 		//admin/khachhang/xoa
 		Route::get('xoa', 'KhachhangController@getXoa');
 	});
+
 	Route::group(['prefix'=>'loaibatdongsan'],function(){
 		Route::get('danhsach','LoaiBDSController@getDanhsach');
 		Route::get('them','LoaiBDSController@getThem');
 		Route::post('them','LoaiBDSController@postThem');
 		Route::get('xoa/{id}','LoaiBDSController@getXoa');
-		Route::get('sua/{id}}','LoaiBDSController@getSua');
-		Route::post('sua','LoaiBDSController@postSua');
+		Route::get('sua/{id}','LoaiBDSController@getSua');
+		Route::post('sua/{id}','LoaiBDSController@postSua');
 	});
+
 	Route::group(['prefix'=>'batdongsan'],function(){
 		Route::get('danhsach','BatDongSanController@getDanhsach');
 		Route::get('them','BatDongSanController@getThem');
 		Route::post('them','BatDongSanController@postThem');
 		Route::get('xoa/{id}','BatDongSanController@getXoa');
-		Route::get('sua/{id}}','BatDongSanController@getSua');
-		Route::post('sua','BatDongSanController@postSua');
+		Route::get('sua/{id}','BatDongSanController@getSua');
+		Route::post('sua/{id}','BatDongSanController@postSua');
+	});
+
+	Route::group(['prefix'=>'hinhanh'],function(){
+		Route::get('danhsach','HinhAnhController@getDanhsach');
+		Route::get('them','HinhAnhController@getThem');
+		Route::post('them','HinhAnhController@postThem');
+		Route::get('xoa/{id}','HinhAnhController@getXoa');
+		Route::get('sua/{id}','HinhAnhController@getSua');
+		Route::post('sua/{id}','HinhAnhController@postSua');
 	});
 });

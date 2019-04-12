@@ -43,7 +43,7 @@
                                           <td>{{$loai->id}}</td>
                                           <td>{{$loai->tenloai}}</td>
                                           <td>
-                                              <a class=" btn btn-info" href="admin/loaibatdongsan/sua/{{$loai->id}}"><i class="glyphicon glyphicon-edit"></i>      Sửa</a>
+                                              <a class=" update btn btn-info" href="admin/loaibatdongsan/sua/{{$loai->id}}"><i class="glyphicon glyphicon-edit"></i>      Sửa</a>
                                               <a class="delete btn btn-danger" href="admin/loaibatdongsan/xoa/{{$loai->id}}"><i class="glyphicon glyphicon-remove-sign"></i>       Xóa</a>
                                           </td>
                                       </tr>

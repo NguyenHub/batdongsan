@@ -1,7 +1,7 @@
 @extends('admin.layouts.index')
 @section('content')
 <h1 class="page-header">
-                    THÊM LOẠI BẤT ĐỘNG SẢN
+                    SỬA LOẠI BẤT ĐỘNG SẢN
                     </h1>
                     <hr>
                     <!-- Breadcrumbs-->
@@ -12,7 +12,7 @@
                          <li class="breadcrumb-item">
                             <a href="index.php">Loại bất động sản</a>
                         </li>
-                        <li class="breadcrumb-item active">Thêm mới</li>
+                        <li class="breadcrumb-item active">Sửa</li>
                     </ol>
                     <div class="clearfix"></div>
                     <div class="row">
@@ -30,12 +30,12 @@
                         	 	</div>
                         	@endif
 
-                            <form class="form-horizontal" action="admin/loaibatdongsan/them" method="post" enctype="multipart/form-data">
+                            <form class="form-horizontal" action="admin/loaibatdongsan/sua/{{$loaibds->id}}" method="post" enctype="multipart/form-data">
 								<input type="hidden" name="_token" value="{{csrf_token()}}"/>
                                 <div class="form-group row">
                                     <label for="inputten" class="col-sm-2 col-form-label">Tên loại</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="inputten" placeholder="Nhập tên loại" name="tenloai" value="">
+                                        <input type="text" class="form-control" id="inputten" placeholder="" name="tenloai" value="{{$loaibds->tenloai}}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
