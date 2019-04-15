@@ -109,4 +109,31 @@ Route::group(['prefix' => 'admin'], function () {
 		Route::get('sua/{id}','HinhAnhController@getSua');
 		Route::post('sua/{id}','HinhAnhController@postSua');
 	});
+
+	Route::group(['prefix'=>'hopdongkygui'],function(){
+		Route::get('danhsach','KyGuiController@getDanhsach');
+		Route::get('them','KyGuiController@getThem');
+		Route::post('them','KyGuiController@postThem');
+		Route::get('xoa/{id}','KyGuiController@getXoa');
+		Route::get('sua/{id}','KyGuiController@getSua');
+		Route::post('sua/{id}','KyGuiController@postSua');
+	});
+
+	Route::group(['prefix'=>'hopdongchuyennhuong'],function(){
+		Route::get('danhsach','ChuyenNhuongController@getDanhsach');
+		Route::get('them','ChuyenNhuongController@getThem');
+		Route::post('them','ChuyenNhuongController@postThem');
+		Route::get('xoa/{id}','ChuyenNhuongController@getXoa');
+		Route::get('sua/{id}','ChuyenNhuongController@getSua');
+		Route::post('sua/{id}','ChuyenNhuongController@postSua');
+	});
+
+	Route::group(['prefix'=>'hopdongdatcoc'],function(){
+		Route::get('danhsach','DatCocController@getDanhsach');
+		Route::get('them','DatCocController@getThem');
+		Route::post('them','DatCocController@postThem');
+		Route::get('xoa/{id}','DatCocController@getXoa');
+		Route::get('sua/{id}','DatCocController@getSua');
+		Route::post('sua/{id}','DatCocController@postSua');
+	});
 });
