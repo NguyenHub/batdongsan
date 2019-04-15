@@ -82,6 +82,7 @@ class KyGuiController extends Controller
 				'giatri'=>'required|numeric|min:0',
 				'chiphidv'=>'required|numeric|min:0',
 				'trangthai'=>'|numeric|numeric',
+				'ngayketthuc'=>'after:ngaybatdau',
 			],
 			[
 				'giatri.required'=>'Chưa nhập giá trị',
@@ -92,6 +93,7 @@ class KyGuiController extends Controller
 				'chiphidv.min'=>'Chi phí dịch vụ phải lớn hơn 0',
 				'trangthai.required'=>'Chưa nhập trạng thái',
 				'trangthai.numeric'=>'Trạng thái không hợp lệ',
+				'ngayketthuc.after'=>'Ngày bắt đầu của hợp đồng ký gửi phải trước ngày kết thúc'
 			]);
 			$hdkg = new HopDongKyGui;
 			$hdkg->khid=$req ->khid;
