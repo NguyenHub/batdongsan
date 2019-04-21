@@ -9,6 +9,7 @@ use App\YeuCauKhachHang;
 use App\HopDongKyGui;
 use App\HopDongDatCoc;
 use App\HopDongChuyenNhuong;
+use Carbon\Carbon;
 
 class ChuyenNhuongController extends Controller
 {
@@ -22,8 +23,24 @@ class ChuyenNhuongController extends Controller
     	$khachhang = KhachHang::all();
     	$batdongsan = BatDongSan::all();
     	$datcoc = HopDongDatCoc::all();
+    	$hopdongchuyennhuong = HopDongChuyenNhuong::all();
+    	$hopdongdatcoc = HopDongDatCoc::all();
 
-    	return view('admin/hopdongchuyennhuong/them',compact('khachhang','batdongsan','datcoc'));
+    	if($hopdongchuyennhuong->count() > 0)
+			foreach ($hopdongchuyennhuong as $value)
+			{
+				$bdsidtam[] = $value->bdsid;
+			}
+		else $bdsidtam[] = 0;
+
+		if($hopdongchuyennhuong->count() > 0)
+			foreach ($hopdongchuyennhuong as $value) 
+			{
+				$hddcidtam[] = $value->dcid;
+			}
+		else $hddcidtam[] = 0;
+
+    	return view('admin/hopdongchuyennhuong/them',compact('khachhang','batdongsan','datcoc','bdsidtam','hddcidtam'));
     }
 
     public function postThem(Request $req){
@@ -43,11 +60,13 @@ class ChuyenNhuongController extends Controller
 		//date_default_timezone_set('Asia/Ho_Chi_Minh');
 //			$date= date('Y-m-d H:i:s');
 			$hdcn = new HopDongChuyenNhuong;
+			$date = Carbon::now();
+			$date->toDateString();
 			$hdcn->khid=$req ->khid;
 			$hdcn->bdsid=$req ->bdsid;
 			$hdcn->dcid=$req ->dcid;
 			$hdcn->giatri=$req ->giatri;
-			$hdcn->ngaylap=$req ->ngaylap;
+			$hdcn->ngaylap=$date;
 			$hdcn->trangthai=$req ->trangthai;
 //			$hdkg->created_at=$req ->$date;
 			$hdcn->save();
@@ -87,7 +106,7 @@ class ChuyenNhuongController extends Controller
 //		dd($req);
 		//date_default_timezone_set('Asia/Ho_Chi_Minh');
 			$date= date('Y-m-d H:i:s');
-			$hdcn = new HopDongChuyenNhuong;
+			$hdcn =HopDongChuyenNhuong::find($id);
 			$hdcn->khid=$req ->khid;
 			$hdcn->bdsid=$req ->bdsid;
 			$hdcn->dcid=$req ->dcid;
@@ -98,5 +117,35 @@ class ChuyenNhuongController extends Controller
 			$hdcn->save();
 			return redirect()->back()->with('thongbao','Thêm thành công');
     }
+
+
+    public function getSearch(Request $req){
+		$hopdongchuyennhuong = HopDongChuyenNhuong::where('id','like',$req->key)->get();
+
+		$this->validate($req,[
+			'key' => 'required|numeric|min:0',
+		],
+		[
+			'key.required' => 'Chưa nhập thông tin',
+			'key.numeric' => 'ID phải là số',
+			'key.min' => 'ID phải lớn hơn hoặc bằng 0',
+		]);
+
+		if(!isset($hopdongchuyennhuong[0]['id']))
+		{
+			$loi = 1;
+			return view('admin/hopdongchuyennhuong/tracuu',compact('loi'));
+		}
+		else
+
+		return view('admin/hopdongchuyennhuong/thongtintracuu',compact('hopdongchuyennhuong'));
+	}
+
+	public function getTracuu(){
+
+		$loi = 0;
+
+		return view('admin/hopdongchuyennhuong/tracuu',compact('loi'));
+	}
 
 }

@@ -70,7 +70,7 @@
             <div class="form-group row">
                 <label for="inputten" class="col-sm-2 col-form-label">Ngày bắt đầu</label>
                 <div class="col-sm-8">
-                    <input type="date" class="form-control" id="inputten" name="ngaybatdau" value="">
+                    <input type="date" class="form-control" id="inputten" name="ngaybatdau" value="" readonly="">
                 </div>
             </div>
             

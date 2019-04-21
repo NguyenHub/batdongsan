@@ -50,7 +50,9 @@
                 <div class="col-sm-8">
                     <select name="bdsid">
                         @foreach($batdongsan as $bds)
-                        <option value="{{$bds->id}}">{{$bds->id}}</option>
+                            @if(!in_array($bds->id,$bdsidtam))
+                                <option value="{{$bds->id}}">{{$bds->id}}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>
@@ -60,7 +62,9 @@
                 <div class="col-sm-8">
                     <select name="dcid">
                         @foreach($datcoc as $dc)
-                        <option value="{{$dc->id}}">{{$dc->id}}</option>
+                            @if(!in_array($dc->id,$hddcidtam))
+                                <option value="{{$dc->id}}">{{$dc->id}}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>
@@ -75,7 +79,7 @@
             <div class="form-group row">
                 <label for="inputten" class="col-sm-2 col-form-label">Ngày lập</label>
                 <div class="col-sm-8">
-                    <input type="date" class="form-control" id="inputten" name="ngaylap" value="">
+                    <input type="date" class="form-control" id="inputten" name="ngaylap" value="" readonly>
                 </div>
             </div>
             <div class="form-group row">

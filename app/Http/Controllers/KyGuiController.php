@@ -9,6 +9,7 @@ use App\YeuCauKhachHang;
 use App\HopDongKyGui;
 use App\HopDongDatCoc;
 use App\HopDongChuyenNhuong;
+use Carbon\Carbon;
 
 class KyGuiController extends Controller
 {
@@ -32,6 +33,7 @@ class KyGuiController extends Controller
 				'chiphidv'=>'required|numeric|min:0',
 				'trangthai'=>'required|numeric',
 				'ngayketthuc'=>'after:ngaybatdau',
+				'bdsid'=>'unique:hopdong_kygui,bdsid',
 			],
 			[
 				'giatri.required'=>'Chưa nhập giá trị',
@@ -42,17 +44,20 @@ class KyGuiController extends Controller
 				'chiphidv.min'=>'Chi phí dịch vụ phải lớn hơn 0',
 				'trangthai.required'=>'Chưa nhập trạng thái',
 				'trangthai.numeric'=>'Trạng thái không hợp lệ',
-				'ngayketthuc.after'=>'Ngày bắt đầu của hợp đồng ký gửi phải trước ngày kết thúc'
+				'ngayketthuc.after'=>'Ngày bắt đầu của hợp đồng ký gửi phải trước ngày kết thúc',
+				'bdsid.unique'=>'Bất động sản bị trùng lập',
 			]);
 		//dd($req);
 		//date_default_timezone_set('Asia/Ho_Chi_Minh');
 //			$date= date('Y-m-d H:i:s');
 			$hdkg = new HopDongKyGui;
+			$date = Carbon::now();
+			$date->toDateString();
 			$hdkg->khid=$req ->khid;
 			$hdkg->bdsid=$req ->bdsid;
 			$hdkg->giatri=$req ->giatri;
 			$hdkg->chiphidv=$req ->chiphidv;
-			$hdkg->ngaybatdau=$req ->ngaybatdau;
+			$hdkg->ngaybatdau=$date;
 			$hdkg->ngayketthuc=$req ->ngayketthuc;
 			$hdkg->trangthai=$req ->trangthai;
 //			$hdkg->created_at=$req ->$date;
@@ -62,9 +67,21 @@ class KyGuiController extends Controller
 
     public function getXoa($id)
 	{
+		$date = Carbon::now();
+		$date->toDateString();
+
 		$kygui=HopDongKyGui::find($id);
-        $kygui->delete();
-        return redirect()->back()->with('thongbao','Xóa thành công');
+		$bdsid = HopDongKyGui::find($id)->bdsid;
+		$chuyennhuong = HopDongChuyenNhuong::where('bdsid',$bdsid)->count();
+
+		if($kygui->ngayketthuc < $date){ // && $chuyennhuong == 0
+	        $kygui->delete();
+	        return redirect()->back()->with('thongbao','Xóa thành công');
+	    }
+	    else
+	    {
+	    	return redirect()->back()->with('thongbao','Xóa thất bại');
+	    }
 	}
 
 	public function getSua($id)
@@ -95,7 +112,7 @@ class KyGuiController extends Controller
 				'trangthai.numeric'=>'Trạng thái không hợp lệ',
 				'ngayketthuc.after'=>'Ngày bắt đầu của hợp đồng ký gửi phải trước ngày kết thúc'
 			]);
-			$hdkg = new HopDongKyGui;
+			$hdkg = HopDongKyGui::find($id);
 			$hdkg->khid=$req ->khid;
 			$hdkg->bdsid=$req ->bdsid;
 			$hdkg->giatri=$req ->giatri;
@@ -106,5 +123,31 @@ class KyGuiController extends Controller
 //			$hdkg->created_at=$req ->$date;
 			$hdkg->save();
 			return redirect()->back()->with('thongbao','Cập nhật thành công');
+	}
+
+	public function getSearch(Request $req){
+		$hopdongkygui = HopDongKyGui::where('id','like',$req->key)->get();
+
+		$this->validate($req,[
+			'key' => 'required|numeric|min:0',
+		],
+		[
+			'key.required' => 'Chưa nhập thông tin',
+			'key.numeric' => 'ID phải là số',
+			'key.min' => 'ID phải lớn hơn hoặc bằng 0',
+		]);
+
+		if(!isset($hopdongkygui[0]['id']))
+		{
+			$loi = 1;
+			return view('admin/hopdongkygui/tracuu',compact('loi'));
+		}
+		else
+			return view('admin/hopdongkygui/thongtintracuu',compact('hopdongkygui'));
+	}
+
+	public function getTracuu(){
+		$loi = 0;
+		return view('admin/hopdongkygui/tracuu',compact('loi'));
 	}
 }

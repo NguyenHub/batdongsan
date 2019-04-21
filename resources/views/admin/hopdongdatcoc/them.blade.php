@@ -40,7 +40,9 @@
                 <div class="col-sm-8">
                     <select name="khid">
                         @foreach($khachhang as $kh)
-                        <option value="{{$kh->id}}">{{$kh->hoten}}</option>
+                            @if(!in_array($kh->id,$khidtam))
+                                <option value="{{$kh->id}}">{{$kh->hoten}}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>
@@ -50,7 +52,9 @@
                 <div class="col-sm-8">
                     <select name="bdsid">
                         @foreach($batdongsan as $bds)
-                        <option value="{{$bds->id}}">{{$bds->id}}</option>
+                                @if(!in_array($bds->id,$bdsidtam))
+                                    <option value="{{$bds->id}}">{{$bds->id}}</option>
+                                @endif
                         @endforeach
                     </select>
                 </div>
@@ -74,7 +78,7 @@
             <div class="form-group row">
                 <label for="inputten" class="col-sm-2 col-form-label">Ngày lập</label>
                 <div class="col-sm-8">
-                    <input type="date" class="form-control" id="inputten" name="ngaylaphd" value="">
+                    <input type="date" class="form-control" id="inputten" name="ngaylaphd" value="" readonly="">
                 </div>
             </div>
             

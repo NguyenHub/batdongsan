@@ -117,6 +117,8 @@ Route::group(['prefix' => 'admin'], function () {
 		Route::get('xoa/{id}','KyGuiController@getXoa');
 		Route::get('sua/{id}','KyGuiController@getSua');
 		Route::post('sua/{id}','KyGuiController@postSua');
+		Route::get('search','KyGuiController@getSearch');
+		Route::get('tracuu','KyGuiController@getTracuu');
 	});
 
 	Route::group(['prefix'=>'hopdongchuyennhuong'],function(){
@@ -126,6 +128,8 @@ Route::group(['prefix' => 'admin'], function () {
 		Route::get('xoa/{id}','ChuyenNhuongController@getXoa');
 		Route::get('sua/{id}','ChuyenNhuongController@getSua');
 		Route::post('sua/{id}','ChuyenNhuongController@postSua');
+		Route::get('search','ChuyenNhuongController@getSearch');
+		Route::get('tracuu','ChuyenNhuongController@getTracuu');
 	});
 
 	Route::group(['prefix'=>'hopdongdatcoc'],function(){
@@ -135,5 +139,7 @@ Route::group(['prefix' => 'admin'], function () {
 		Route::get('xoa/{id}','DatCocController@getXoa');
 		Route::get('sua/{id}','DatCocController@getSua');
 		Route::post('sua/{id}','DatCocController@postSua');
+		Route::get('search','DatCocController@getSearch');
+		Route::get('tracuu','DatCocController@getTracuu');
 	});
 });

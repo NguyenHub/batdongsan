@@ -37,19 +37,19 @@
 			<li id="menu-academico" ><a href="admin/hopdongkygui/danhsach"><i class="fa fa-list-ul" aria-hidden="true"></i><span>Qlý HĐ ký gửi</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
 				<ul id="menu-academico-sub" >
 					<li id="menu-academico-avaliacoes" ><a href="admin/hopdongkygui/them">Thêm</a></li>
-					<li id="menu-academico-avaliacoes" ><a href="faq.html">Tra cứu</a></li>
+					<li id="menu-academico-avaliacoes" ><a href="admin/hopdongkygui/tracuu">Tra cứu</a></li>
 				</ul>
 			</li>
 			<li id="menu-academico" ><a href="admin/hopdongchuyennhuong/danhsach"><i class="fa fa-list-ul" aria-hidden="true"></i><span>Qlý HĐ chuyển nhượng</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
 				<ul id="menu-academico-sub" >
 					<li id="menu-academico-avaliacoes" ><a href="admin/hopdongchuyennhuong/them">Thêm</a></li>
-					<li id="menu-academico-avaliacoes" ><a href="faq.html">Tra cứu</a></li>
+					<li id="menu-academico-avaliacoes" ><a href="admin/hopdongchuyennhuong/tracuu">Tra cứu</a></li>
 				</ul>
 			</li>
 			<li id="menu-academico" ><a href="admin/hopdongdatcoc/danhsach"><i class="fa fa-list-ul" aria-hidden="true"></i><span>Qlý HĐ đặt cọc</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
 				<ul id="menu-academico-sub" >
 					<li id="menu-academico-avaliacoes" ><a href="admin/hopdongdatcoc/them">Thêm</a></li>
-					<li id="menu-academico-avaliacoes" ><a href="faq.html">Tra cứu</a></li>
+					<li id="menu-academico-avaliacoes" ><a href="admin/hopdongdatcoc/tracuu">Tra cứu</a></li>
 				</ul>
 			</li>
 			<li id="menu-academico" ><a href="errorpage.html"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span>Error Page</span><div class="clearfix"></div></a></li>
